@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://bine2na5qe77t"]
+
+[ext_resource type="Texture2D" uid="uid://bwpmfdxggxh6y" path="res://assets/Chess_board.png" id="1_3bf14"]
+[ext_resource type="Script" path="res://scenes/board.gd" id="2_3b81m"]
+[ext_resource type="PackedScene" uid="uid://dcso484d17sf4" path="res://scenes/white_king.tscn" id="2_yxrkq"]
+
+[node name="run" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(152, -70)
+zoom = Vector2(3, 3)
+
+[node name="board" type="Sprite2D" parent="."]
+position = Vector2(72, -72)
+texture = ExtResource("1_3bf14")
+script = ExtResource("2_3b81m")
+
+[node name="board_pieces" type="Node2D" parent="board"]
+position = Vector2(11, 140)
+
+[node name="board_hazards" type="Node2D" parent="board"]
+position = Vector2(7, 158)
+
+[node name="player" type="Sprite2D" parent="."]
+
+[node name="player_stats" type="Node2D" parent="player"]
+
+[node name="player_pieces" type="Node2D" parent="player"]
+position = Vector2(252, 133)
+
+[node name="deployed_pieces" type="Node2D" parent="player/player_pieces"]
+
+[node name="stored_pieces" type="Node2D" parent="player/player_pieces"]
+
+[node name="white_king" parent="player/player_pieces/stored_pieces" instance=ExtResource("2_yxrkq")]
+position = Vector2(-243, -113)
